@@ -7,7 +7,7 @@ export default function Navigation() {
   return (
     
     <div className='navigation_container'>
-        <h3 className="navigation_title">Select generation</h3>
+        <h3 className="navigation_title">Select Generation</h3>
         <div className="links_container">
             {
                 generations.map(({id,link,text,exact=false})=>(
