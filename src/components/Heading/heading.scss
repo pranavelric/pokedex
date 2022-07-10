@@ -1,0 +1,31 @@
+@use '../../styles/scss/' as *;
+
+
+
+.heading{
+    margin: 1rem 0 4rem;
+    text-align: center;
+    font-size: 4rem;
+    color: #444;
+    position: relative;
+    text-shadow: 2px 1px 2px #444;
+    &::after{
+        content: '';
+        display: block;
+        width: 2rem;
+        position: relative;
+        background-color: #FB6C6C;   
+        top: 100%;
+        left: 50%;
+        margin-left:-1rem ;
+    }
+
+    & > i{
+        display: inline-block;
+        height: 2.8rem;
+        width: 2.8rem;
+        background-image: url('../../static/pokeball.svg');
+        background-repeat: no-repeat;
+        
+    }
+}
