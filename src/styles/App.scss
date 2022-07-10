@@ -1,0 +1,32 @@
+@use "./scss/" as *;
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  
+html{
+    font-size: 100%;
+  
+    @include tablet{
+      font-size: 80%;
+    }
+    @include mobile{
+      font-size: 60%;
+    }
+  }
+  
+
+body{
+    background-color: black;
+    background: url("../static/bg1.png");  
+    color: $txt-color;
+    font-weight: 400;
+    line-height: 1.5;
+    @include mobile{
+        margin-bottom: 3rem;
+      }
+}
