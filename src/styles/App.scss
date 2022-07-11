@@ -37,3 +37,32 @@ body{
     padding: 1rem;
     border-radius: 1rem;
 }
+
+.bg_pokeball{
+  position: absolute;
+  @include flex(center,center);
+  right: -10px;
+  bottom: -10px;
+  font-size: 10px;
+  color: rgba( 255,255,255,.2 );
+
+
+  &::before{
+    display: block;
+    border-radius: 100%;
+    content: '';
+    position: relative;
+    width: 10em;
+    padding-bottom: 10em;
+    border: 4em solid currentColor;
+    clip-path: polygon( 0 0, 0 40%, 50% 40%, 50% 60%, 0 60%, 0 100%, 100% 100%, 100% 60%, 50% 60%, 50% 40%, 100% 40%, 100% 0 );
+
+  }
+  &::after{
+    content: '';
+    position: absolute;
+    width: 5em;
+    padding-bottom: 5em;
+    background-color: currentColor;
+  }
+}
