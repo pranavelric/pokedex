@@ -41,12 +41,12 @@
     
     &:hover{
             outline: none;
-            color: #E53935;
+            color: $pokemon_red;
             background-color: #EEE;
     }
     &:focus{
         outline: none;
-        color: #E53935;
+        color: $pokemon_red;
         background-color: #EEE;
     }
 
@@ -58,7 +58,7 @@
         height: 3px;
         left: 0;
         bottom: 0;
-        background-color:#E53935;
+        background-color:$pokemon_red;
         opacity: 0;
         border-radius: 1px;
         transform: scaleX(0);
@@ -67,7 +67,7 @@
     }
 
     &.active{
-        color: #E53935;
+        color: $pokemon_red;
         background-color: #EEE;
     }
     
