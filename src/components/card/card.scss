@@ -1,0 +1,98 @@
+@use '../../styles/scss/' as *;
+
+
+.card_container{
+    
+    padding: 1rem;
+    height: 100%;
+    cursor: pointer;
+}
+
+.card{
+    background-color: var(--color);
+    box-shadow: 0 0 20px 0 var(--color);
+    padding: 3rem 1rem 3rem 3rem;
+    border-radius: 3rem;
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+    @include flex(center,space-between);
+    will-change: box-shado,transform;
+    transition: 0.3s all;
+
+    .card_title{
+        align-self: flex-start;
+    
+        h2{
+            text-transform: capitalize;
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .pokemon_types{
+            margin-top: 1rem;
+        }
+        span.type{
+            border-radius: 100rem;
+            background-color: rgba( 255,255,255,.2 );
+            display: table;
+            padding: .3rem .7rem;
+            text-align: center;
+            margin-bottom: .5rem;
+            text-transform: capitalize;
+
+      
+        }
+    }
+
+    .pokemon_image{
+        align-self: flex-end;
+        @include flex(center,flex-end);
+        max-width: 50%;
+
+    }
+
+    img{
+        max-width: 100%;
+        max-height: 100%;
+        filter: drop-shadow(0 0 5px rgba( 0,0,0,0.7 ) );
+    }
+
+    .pokemon_id{
+        font-family: 'Pokemon Solid';
+        letter-spacing: 0.5rem;
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        font-size: 2.5rem;
+        color: rgba( 0,0,0,.2 );
+    }
+
+    &:hover{
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px 5px var(--color);
+    }
+
+    @include small_device{
+       align-items: flex-start;
+       justify-content: space-between;
+       height: 56vh;
+       padding: 2rem;
+
+       .card_title{
+        h2{
+            font-size: 1.2rem;
+        }
+       }
+       .pokemon_id{
+        font-size: 2rem;
+        top: 20px;
+        right: 20px;
+       }
+    }
+
+
+}
+
+
+
