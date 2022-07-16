@@ -1,0 +1,126 @@
+@use '../../styles/scss/' as *;
+
+
+.details{
+    background-color: #fff;
+    color:#333;
+    box-shadow: 0 0 10px 0 rgba( 0,0,0,.4 );
+    border-radius: 3rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+    animation: 0.3s pull-up both ease-out .2s;
+
+    .pokemon_image{
+        position: absolute;
+        bottom: 100%;
+        margin-bottom: -2rem;
+        left: 50%;
+        transform: translateX( -50% );
+    max-width: 30%;
+    height: auto;
+    max-height: 20vh;
+    filter: drop-shadow( 4px 5px 1px rgba( 0,0,0,.4 ) );
+    animation: 0.3s fade-in ease-out .5s both;
+    }
+
+    .tabs_switch_container{
+        margin-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(0,0,0,.05);
+
+        .tab_switch
+        {
+
+            @include mobile{
+                padding: .5rem;
+                font-size: .8rem;
+            }
+            background: transparent;
+            border: none;
+            font-weight: bold;
+            font-size: 1rem;
+            font-family: inherit;
+            padding: 1rem 1rem;
+            position: relative;
+            color: rgba( 0,0,0,.2 );
+            outline: none;
+            transition: .3s all;
+            cursor: pointer;
+
+            &.active{
+                color: inherit;
+
+                &::after{
+                    content: '';
+                    display: block;
+                    width: 100%;
+                    height: 3px;
+                    top: 100%;
+                    margin-top: -.5px;
+                    left: 0;
+                    position: absolute;
+                    background-color: $pokemon_red;
+                    border-radius: 10px;
+                }
+            }
+            &:hover{
+                color: $pokemon_red;
+            }
+
+
+        }
+    }
+
+    .tab{
+        max-height: 45vh;
+        overflow-y: auto;
+
+        @include mobile{
+            font-size: .8rem;
+        }
+        table{
+            width: 100%;
+
+            td{
+                padding: 0.5rem;
+                text-transform: capitalize;
+
+                &:first-child{
+                    width: 20%;
+                }
+
+                &:nth-child(2){
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    font-weight: bold;
+
+                    .range_view{
+                        width: 90%;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .tab_evolution
+{
+    --gap: 40px;
+
+    display: flex;
+    flex-direction: column;
+    grid-gap: var(--gap);
+    gap: var( --gap );
+
+    .loader{
+        padding: 1em;
+        margin-top: calc( -1 * var( --gap ) );
+    }
+}
+
+}
+
+
