@@ -16,7 +16,7 @@ export default function Evolution({ pokemon, onPokemonChange } ) {
 
 { ! isLoading && ! evolutionChain.length &&
                 <div>
-                    This pokemon doesn't evolove
+                    This pokemon doesn't evolve
                 </div>
 			}
 
