@@ -1,0 +1,113 @@
+@use '../../styles/scss/' as *;
+
+
+
+
+.evolution_container{
+    @include flex(center,space-between);
+    position: relative;
+
+    >*{
+        width: 33.3333%;
+    }
+
+
+    .trigger_container{
+        position: relative;
+        @include flex(center,center);
+        flex-direction: column;
+        font-weight: bold;
+        text-transform: capitalize;
+        text-align: center;
+
+        .arrow{
+                --color: #EEE;
+    --width: 3px;
+    display: block;
+    height: var( --width );
+    width: 2.5em;
+        background-color: var( --color );
+    position: relative;
+    margin-bottom: 10px;
+
+
+    &::after{
+
+            content: '';
+    display: block;
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    border: var( --width ) solid var( --color );
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    right: 0;
+    top: 0;
+    margin-top: calc( var( --width ) * -1.4 );
+    transform: rotate( 45deg );
+    }
+        }
+
+
+    }
+
+}
+
+
+
+// .evolution-container .trigger-container .arrow::after
+// {
+//     content: '';
+//     display: block;
+//     position: absolute;
+//     height: 5px;
+//     width: 5px;
+//     border: var( --width ) solid var( --color );
+//     border-left-color: transparent;
+//     border-bottom-color: transparent;
+//     right: 0;
+//     top: 0;
+//     margin-top: calc( var( --width ) * -1.4 );
+//     transform: rotate( 45deg );
+// }
+
+.evolve_container{
+    @include flex(center,center);
+    flex-direction: column;
+    margin-inline: auto;
+    text-transform: capitalize;
+    font-weight: bold;
+    cursor: pointer;
+
+    .image_container{
+        position: relative;
+        text-align: center;
+        width: 100%;
+        @include flex(center,center);
+        margin-bottom: 15px;
+    }
+
+    .bg_pokeball{
+        color: rgba( 0,0,0,.05 );
+        right: auto;
+        bottom: auto;
+        left: 50%;
+        top: 50%;
+        transform: translateX( -50% ) translateY( -50% );
+        font-size: .7vmin;
+        z-index: 1;
+    }
+
+    img{
+        max-width: 80%; 
+        max-height: 10vh;
+        height: auto;
+        position: relative;
+        z-index: 2;
+    }
+
+}
+
+
+
+
