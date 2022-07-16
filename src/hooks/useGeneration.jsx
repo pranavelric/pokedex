@@ -3,31 +3,39 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import generations from '../data/generations';
 import { fetchPokemonData,fetchPokemons } from '../api/api';
 
-
-
+/**
+ * Hook to get Pokemons generation data by ID.
+ *
+ * @param {number} generationId - Generation ID to get data for.
+ *
+ * @return {Object}
+ */
 export default function useGeneration(generationId) {
+
     const [pokemons,setPokemons] = useState([]);
     const [isLoading,setIsLoading] = useState(false);
 
-    const generation = useMemo(()=>{return generations.find((gen)=>gen.id===generationId)},[generationId])
+    const generation = useMemo(()=>{
+        return generations.find((gen)=>gen.id===generationId)}
+        ,[generationId]);
 
-    // Fetch pokemons data by generation
-    const fetchData = useCallback(()=>{ 
-        if(generation.limit===null||generation.offset===null)
-        {
-            return;
-        }
+	// Fetch pokemons data by generation.
+	const fetchData = useCallback( () => {
+		if ( generation.limit === null || generation.offset === null ) {
+			return;
+		}
 
-        setIsLoading(true);
-        setPokemons([]);
+		setIsLoading( true );
+		setPokemons( [] );
 
-        
-        // get all pokemons for the selected generation
-        fetchPokemons( generation.limit, generation.offset ).then( async ( { results } ) => {
+		// Get all Pokemons for the selected generation.
+
+		fetchPokemons( generation.limit, generation.offset ).then( async ( { results } ) => {
 			const data = [];
 
 			// Get data for each specific Pokemon.
 			await Promise.all( results.map( async ( { name } ) => {
+
 				const pokemon = await fetchPokemonData( name );
 
 				data[ pokemon.id ] = pokemon;
@@ -36,17 +44,19 @@ export default function useGeneration(generationId) {
 			setPokemons( data );
 			setIsLoading( false );
 		} );
-	}, [] );
+	}, [generation] );
 
-    useEffect(()=>{
-        if(generationId){
-            fetchData();
-        }
-    },[generationId]);
+	// Refetch on generation change.
+	useEffect( () => {
+		if ( generationId ) {
+			fetchData();
+		}
+	}, [ generationId ] );
+
 
   return {
     data: pokemons,
     refetch: fetchData,
     isLoading,
-  }
+  };
 }
