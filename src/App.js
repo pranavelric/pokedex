@@ -7,8 +7,10 @@ import Navigation from './components/Navigation/Navigation';
 import {Routes, Route, Navigate} from 'react-router-dom'
 import generations from './data/generations';
 import PokedexView from './components/PokedexView/PokedexView';
+import DetailsView from './components/detailsView/DetailsView';
 
 function App() {
+
   return (
       <PokemonProvider>
         <div className="pokedex_app">
@@ -19,12 +21,12 @@ function App() {
                 {
                   generations.map(({id,link})=>(
                
-          <Route key={ id } exact path={ '/' + link } element={<PokedexView generation={id} />}/>
+          <Route key={ id } path={ '/' + link } element={<PokedexView generation={id} />}/>
                   ))
                 }
             </Routes>
 
-
+            <DetailsView />
         </div>
       
       </PokemonProvider>
