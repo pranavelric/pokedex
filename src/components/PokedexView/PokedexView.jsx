@@ -12,12 +12,12 @@ export default function PokedexView({generation}) {
     const {pokemons,setPokemons,setCurrentPokemonId} = usePokemons();
     const {data,isLoading}= useGeneration(generation);
 
-    useEffect(()=>{
-        setPokemons(data)
-    },[data]);
+	useEffect( () => {
+		setPokemons( data );
+	}, [ data ] );
 
     if(isLoading){
-        return <Loader/>
+     return (<Loader/>)
     }
 
   return (
@@ -25,8 +25,7 @@ export default function PokedexView({generation}) {
         {
             pokemons.map((pokemon)=>{
                 return (
-                <Card key={pokemon.id} pokemon={pokemon} onClick={setCurrentPokemonId(pokemon.id)}/>
-                
+                <Card key={pokemon.id} pokemon={pokemon} onClick={()=>setCurrentPokemonId(pokemon.id)}/>
                 );
             })
         }
