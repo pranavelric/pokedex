@@ -8,7 +8,7 @@
     font-size: 4rem;
     color: #444;
     position: relative;
-    text-shadow: 2px 1px 2px #444;
+    text-shadow: 2px 1px 2px rgba(0,0,0,0.2);
     &::after{
         content: '';
         display: block;
