@@ -1,0 +1,68 @@
+@use '../../styles/scss/' as *;
+ 
+
+.details_view_container{
+max-height: 100vh;
+max-width: 800px;
+width: 95vw;
+
+    bottom: 0;
+    left: 50vw;
+
+
+        display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: fixed;
+    z-index: 99999;
+    background-color: #FFF;
+    border-radius: 3rem;
+    animation:.3s pull-up-center both ease-out;
+
+    &.hidden{
+        animation: .3s pull-down-center both ease-out;
+    }
+    .card_container{
+    cursor: auto;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    transform: translateY( 40px );
+    margin-top: -40px;
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+    
+}
+
+.card{
+        border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-bottom: 25vmin;
+    padding-top: 5vmin;
+    justify-content: center;
+    box-shadow: 0 0 10px 0 rgba( 0,0,0,.3 );
+
+    .card_title{
+        span{
+            &.type{
+                    display: inline-block;
+    margin-right: 5px;
+            }
+        }
+
+        @include tablet{
+            align-self: center;
+        }
+    }
+
+    .pokemon_image{
+        display: none;
+    }
+
+}
+
+}
+
+
+
